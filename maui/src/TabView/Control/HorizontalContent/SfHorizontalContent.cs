@@ -452,7 +452,8 @@ namespace Syncfusion.Maui.Toolkit.TabView
 				else
 				{
 					SfGrid parentGrid = new SfGrid();
-					parentGrid.SetBinding(SfGrid.IsVisibleProperty, new Binding("IsVisible", source: item));
+					parentGrid.SetBinding(SfGrid.IsVisibleProperty, static (SfGrid grid) => grid.IsVisible, source: item);
+
 					if (index >= 0)
 					{
 						_horizontalStackLayout?.Children.Insert(index, parentGrid);
@@ -485,7 +486,8 @@ namespace Syncfusion.Maui.Toolkit.TabView
 				Style = new Style(typeof(SfGrid))
 			};
 			parentGrid.Children.Add(item.Content);
-			parentGrid.SetBinding(Grid.IsVisibleProperty, new Binding(nameof(SfTabItem.IsVisible), source: item));
+			parentGrid.SetBinding(Grid.IsVisibleProperty, static (SfTabItem tabItem) => tabItem.IsVisible, source: item);
+
 			return parentGrid;
 		}
 

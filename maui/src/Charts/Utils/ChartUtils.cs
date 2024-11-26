@@ -470,12 +470,11 @@ namespace Syncfusion.Maui.Toolkit.Charts
                 label.HorizontalTextAlignment = TextAlignment.Center;
                 // Workaround: Setting line break mode to NoWrap in tooltip label to prevent cropping.
                 label.LineBreakMode = LineBreakMode.NoWrap;
-                label.SetBinding(Label.TextProperty, nameof(TooltipInfo.Text));
-                label.SetBinding(Label.TextColorProperty, nameof(TooltipInfo.TextColor));
-                label.SetBinding(Label.MarginProperty, nameof(TooltipInfo.Margin));
-                label.SetBinding(Label.FontSizeProperty, nameof(TooltipInfo.FontSize));
-                label.SetBinding(Label.FontFamilyProperty, nameof(TooltipInfo.FontFamily));
-                label.SetBinding(Label.FontAttributesProperty, nameof(TooltipInfo.FontAttributes));
+                label.SetBinding(Label.TextProperty,static (TooltipInfo tooltipInfo) => tooltipInfo.Text);
+                label.SetBinding(Label.TextColorProperty, static (TooltipInfo tooltipInfo) => tooltipInfo.TextColor);
+                label.SetBinding(Label.MarginProperty, static (TooltipInfo tooltipInfo) => tooltipInfo.Margin);
+                label.SetBinding(Label.FontSizeProperty, static (TooltipInfo tooltipInfo) => tooltipInfo.FontSize);
+                label.SetBinding(Label.FontFamilyProperty, static (TooltipInfo tooltipInfo) => tooltipInfo.FontFamily);label.SetBinding(Label.FontAttributesProperty, static (TooltipInfo tooltipInfo) => tooltipInfo.FontAttributes);
 
                 return new ViewCell { View = label };
             });

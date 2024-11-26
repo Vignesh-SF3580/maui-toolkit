@@ -428,9 +428,10 @@ namespace Syncfusion.Maui.Toolkit
                     };
 
                     shapeView.SetBinding(SfShapeView.IconBrushProperty, multiBinding);
-                    shapeView.SetBinding(SfShapeView.ShapeTypeProperty, nameof(LegendItem.IconType));
-                    shapeView.SetBinding(SfShapeView.HeightRequestProperty, nameof(LegendItem.IconHeight));
-                    shapeView.SetBinding(SfShapeView.WidthRequestProperty, nameof(LegendItem.IconWidth));
+                    shapeView.SetBinding(SfShapeView.ShapeTypeProperty, static (LegendItem legendItem) => legendItem.IconType);
+                    shapeView.SetBinding(SfShapeView.HeightRequestProperty, static (LegendItem legendItem) => legendItem.IconHeight);
+                    shapeView.SetBinding(SfShapeView.WidthRequestProperty, static (LegendItem legendItem) => legendItem.IconWidth);
+
                     stack.Children.Add(shapeView);
                 }
 
@@ -439,12 +440,13 @@ namespace Syncfusion.Maui.Toolkit
                 if (label != null)
                 {
                     label.VerticalTextAlignment = TextAlignment.Center;
-                    label.SetBinding(Label.TextProperty, nameof(LegendItem.Text));
-                    label.SetBinding(Label.TextColorProperty, nameof(LegendItem.ActualTextColor));
-                    label.SetBinding(Label.MarginProperty, nameof(LegendItem.TextMargin));
-                    label.SetBinding(Label.FontSizeProperty, nameof(LegendItem.FontSize));
-                    label.SetBinding(Label.FontFamilyProperty, nameof(LegendItem.FontFamily));
-                    label.SetBinding(Label.FontAttributesProperty, nameof(LegendItem.FontAttributes));
+                    label.SetBinding(Label.TextProperty, static (LegendItem legendItem) => legendItem.Text);
+                    label.SetBinding(Label.TextColorProperty, static (LegendItem legendItem) => legendItem.ActualTextColor);
+                    label.SetBinding(Label.MarginProperty, static (LegendItem legendItem) => legendItem.TextMargin);
+                    label.SetBinding(Label.FontSizeProperty, static (LegendItem legendItem) => legendItem.FontSize);
+                    label.SetBinding(Label.FontFamilyProperty, static (LegendItem legendItem) => legendItem.FontFamily);
+                    label.SetBinding(Label.FontAttributesProperty, static (LegendItem legendItem) => legendItem.FontAttributes);
+
                     stack.Children.Add(label);
                 }
                 return stack;

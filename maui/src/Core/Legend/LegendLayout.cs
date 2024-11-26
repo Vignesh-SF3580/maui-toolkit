@@ -177,11 +177,11 @@ GetMaximumCoeff(_legend.ItemsMaximumHeightRequest?.Invoke() ?? 0.25));
                 var itemsView = Legend.CreateLegendView();
                 _legendItemsView = itemsView ?? new SfLegend();
                 _legendItemsView.BindingContext = _legend;
-                _legendItemsView.SetBinding(SfLegend.ToggleVisibilityProperty, "ToggleSeriesVisibility");
-                _legendItemsView.SetBinding(SfLegend.PlacementProperty, nameof(Legend.Placement));
-                _legendItemsView.SetBinding(SfLegend.ItemTemplateProperty, nameof(Legend.ItemTemplate));
-                _legendItemsView.SetBinding(SfLegend.IsVisibleProperty, nameof(Legend.IsVisible));
-                _legendItemsView.SetBinding(SfLegend.ItemsLayoutProperty, nameof(Legend.ItemsLayout));
+                _legendItemsView.SetBinding(SfLegend.ToggleVisibilityProperty, static (SfLegend sfLegend) => sfLegend.ToggleVisibility);
+                _legendItemsView.SetBinding(SfLegend.PlacementProperty, static (SfLegend sfLegend) => sfLegend.Placement);
+                _legendItemsView.SetBinding(SfLegend.ItemTemplateProperty, static (SfLegend sfLegend) => sfLegend.ItemTemplate);
+                _legendItemsView.SetBinding(SfLegend.IsVisibleProperty, static (SfLegend sfLegend) => sfLegend.IsVisible);_legendItemsView.SetBinding(SfLegend.ItemsLayoutProperty, static (SfLegend sfLegend) => sfLegend.ItemsLayout);
+
                 _legendItemsView.ItemsSource = _plotArea.LegendItems;
                 _legendItemsView.ItemClicked += OnLegendItemToggled;
                 _legendItemsView.PropertyChanged += LegendItemsView_PropertyChanged;

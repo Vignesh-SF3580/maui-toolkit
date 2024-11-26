@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.Maui.Controls.Internals;
 
 namespace Syncfusion.Maui.Toolkit.Themes
@@ -171,13 +172,14 @@ namespace Syncfusion.Maui.Toolkit.Themes
             }
         }
 
-        /// <summary>
-        /// Returns a boolean value indicating whether the Setter's Apply Method is invoked using Reflection or not.
-        /// </summary>
-        /// <param name="element"></param>
-        /// <param name="style"></param>
-        /// <returns></returns>
-        private static bool ApplyStyle(Element element, Style style)
+		/// <summary>
+		/// Returns a boolean value indicating whether the Setter's Apply Method is invoked using Reflection or not.
+		/// </summary>
+		/// <param name="element"></param>
+		/// <param name="style"></param>
+		/// <returns></returns>
+		[RequiresUnreferencedCode("The ApplyStyle method is not trim compatible")]
+		private static bool ApplyStyle(Element element, Style style)
         {
             var applyMethodInfo = typeof(Style).GetInterface("IStyle")?.GetMethod("Apply");
 

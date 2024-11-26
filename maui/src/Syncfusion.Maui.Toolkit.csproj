@@ -21,8 +21,12 @@
 		<Copyright>Copyright 2001 - 2024 Syncfusion Inc.</Copyright>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		
-		<DebugType>portable</DebugType>
+
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <EnableAotAnalyzer>true</EnableAotAnalyzer>
+    <EnableSingleFileAnalyzer>true</EnableSingleFileAnalyzer>
+
+    	<DebugType>portable</DebugType>
 		<OutputType>Library</OutputType>
 		
 		<SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>

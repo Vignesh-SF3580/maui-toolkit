@@ -5,6 +5,7 @@ using Microsoft.Maui.Controls.Shapes;
 using Core = Syncfusion.Maui.Toolkit;
 using Syncfusion.Maui.Toolkit.Graphics.Internals;
 using System.Reflection;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Syncfusion.Maui.Toolkit.Charts
 {
@@ -400,7 +401,8 @@ namespace Syncfusion.Maui.Toolkit.Charts
             return inside;
         }
 
-        internal static bool IsOverriddenMethod(object classObject, string methodName)
+		[RequiresUnreferencedCode("The IsOverriddenMethod method is not trim compatible")]
+		internal static bool IsOverriddenMethod(object classObject, string methodName)
         {
             var methodInfo = classObject.GetType().GetMethod(methodName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
 

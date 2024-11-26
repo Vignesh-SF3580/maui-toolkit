@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows.Input;
 using Microsoft.Maui.Controls.Internals;
 using Syncfusion.Maui.Toolkit.Themes;
@@ -1356,6 +1357,7 @@ namespace Syncfusion.Maui.Toolkit.Chips
 		/// <param name="propertyName">The property name.</param>
 		/// <param name="item">The element from chips collection.</param>
 		/// <returns>The property value from item.</returns>
+		[RequiresUnreferencedCode("The GetPropertyValue method is not trim compatible")]
 		static object GetPropertyValue(string propertyName, object item)
 		{
 			var propertyInfo = item.GetType().GetProperty(propertyName);
